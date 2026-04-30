@@ -1,0 +1,10 @@
+{
+  "appId": "com.develsystems.smartid.plugin",
+  "appName": "smartid",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}

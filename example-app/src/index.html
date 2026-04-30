@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SmartID - Dashboard</title>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+
+    <style>
+      :root { 
+        --ion-background-color: #121212; 
+        --ion-text-color: #ffffff; 
+        --ion-item-background: #1e1e1e;
+      }
+      body { background-color: #121212; }
+      .hidden { display: none; }
+      
+      /* Estilo Consola Log */
+      .console-log {
+        background: #000; 
+        color: #00ff00; 
+        font-family: 'Courier New', monospace;
+        padding: 12px; 
+        border-radius: 8px; 
+        font-size: 0.8rem; 
+        overflow-y: auto; 
+        max-height: 250px;
+        border: 1px solid #333;
+      }
+      .log-entry { margin-bottom: 6px; border-bottom: 1px solid #222; padding-bottom: 4px; line-height: 1.2; }
+      .log-time { color: #888; font-size: 0.7rem; font-weight: bold; }
+      
+      /* Ajustes de UI */
+      ion-list { background: transparent !important; padding: 0; }
+      ion-item { --border-color: #333; margin-bottom: 2px; }
+      ion-item h2 { font-weight: 600; }
+      ion-item p { color: #aaa; }
+    </style>
+  </head>
+
+  <body>
+    <ion-app>
+      <ion-header class="ion-no-border">
+        <ion-toolbar color="dark">
+          <ion-buttons slot="start">
+            <ion-button id="btn-back" class="hidden" onclick="showMenu()">
+              <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title id="main-title">SmartID Dummy Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content color="dark" class="ion-padding">
+        
+        <div id="view-menu">
+          <ion-list lines="full" id="menu-list">
+            
+            <ion-item button onclick="openMethod('startLocation')">
+              <ion-icon name="location-outline" slot="start" color="primary"></ion-icon>
+              <ion-label><h2>StartLocation</h2><p>Lectura de localización (iOS Focus)</p></ion-label>
+              <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+            </ion-item>
+
+            <ion-item button onclick="openMethod('getRawData')">
+              <ion-icon name="document-text-outline" slot="start" color="primary"></ion-icon>
+              <ion-label><h2>GetRawData</h2><p>Información de dispositivo y riesgo</p></ion-label>
+              <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+            </ion-item>
+
+            <ion-item button onclick="openMethod('startSecurityChecks')">
+              <ion-icon name="shield-checkmark-outline" slot="start" color="success"></ion-icon>
+              <ion-label><h2>StartSecurityChecks</h2><p>Monitoreo activo de seguridad</p></ion-label>
+              <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+            </ion-item>
+
+            <ion-item button onclick="openMethod('stopSecurityChecks')">
+              <ion-icon name="stop-circle-outline" slot="start" color="danger"></ion-icon>
+              <ion-label><h2>StopSecurityChecks</h2><p>Detener monitoreo activo</p></ion-label>
+              <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+            </ion-item>
+
+            <ion-item button onclick="openMethod('startBlockCellphoneScreen')">
+              <ion-icon name="phone-portrait-outline" slot="start" color="warning"></ion-icon>
+              <ion-label><h2>Block Screen</h2><p>Protección de capturas y multitarea</p></ion-label>
+              <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+            </ion-item>
+
+            <ion-item button onclick="openMethod('enableOverlayProtection')">
+              <ion-icon name="layers-outline" slot="start" color="secondary"></ion-icon>
+              <ion-label><h2>Overlay Protection</h2><p>Detección de superposiciones</p></ion-label>
+              <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+            </ion-item>
+
+          </ion-list>
+        </div>
+
+        <div id="view-detail" class="hidden">
+          <ion-card mode="md" style="background: #1e1e1e; margin: 0 0 16px 0; border: 1px solid #333;">
+            <ion-card-header>
+              <ion-card-title id="detail-title" color="primary" style="text-transform: capitalize;"></ion-card-title>
+              <ion-card-subtitle>Configuración de parámetros</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <div id="params-container">
+                </div>
+              <ion-button expand="block" mode="md" id="btn-execute" class="ion-margin-top" strong="true">
+                EJECUTAR
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin: 10px 5px;">
+            <h4 style="font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 1px;">Output Log</h4>
+            <ion-button fill="clear" size="small" color="danger" onclick="clearLogs()">Limpiar</ion-button>
+          </div>
+          
+          <div class="console-log" id="console-log">
+            <div class="log-entry">Capacitor inicializado. Listo para pruebas.</div>
+          </div>
+        </div>
+
+      </ion-content>
+    </ion-app>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="./js/example.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,300 @@
+{
+  "api": {
+    "name": "smartidPlugin",
+    "slug": "smartidplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "startLocation",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "startlocation"
+      },
+      {
+        "name": "getRawData",
+        "signature": "(options: GetRawDataOptions) => Promise<GetRawDataResponse>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "GetRawDataOptions"
+          }
+        ],
+        "returns": "Promise<GetRawDataResponse>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "GetRawDataResponse",
+          "GetRawDataOptions"
+        ],
+        "slug": "getrawdata"
+      },
+      {
+        "name": "startSecurityChecks",
+        "signature": "(options: StartSecurityChecksOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "StartSecurityChecksOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "StartSecurityChecksOptions"
+        ],
+        "slug": "startsecuritychecks"
+      },
+      {
+        "name": "stopSecurityChecks",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "stopsecuritychecks"
+      },
+      {
+        "name": "startBlockCellphoneScreen",
+        "signature": "(options: BlockCellphoneScreenOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "BlockCellphoneScreenOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "BlockCellphoneScreenOptions"
+        ],
+        "slug": "startblockcellphonescreen"
+      },
+      {
+        "name": "enableOverlayProtection",
+        "signature": "() => Promise<EnableOverlayProtectionResponse>",
+        "parameters": [],
+        "returns": "Promise<EnableOverlayProtectionResponse>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "EnableOverlayProtectionResponse"
+        ],
+        "slug": "enableoverlayprotection"
+      },
+      {
+        "name": "removeAllListeners",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "removealllisteners"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'securityReasons', listenerFunc: (result: SecurityReasonsEvent) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'securityReasons'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(result: SecurityReasonsEvent) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "SecurityReasonsEvent"
+        ],
+        "slug": "addlistenersecurityreasons-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'onCloseApp', listenerFunc: () => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'onCloseApp'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "() => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle"
+        ],
+        "slug": "addlisteneroncloseapp-"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "GetRawDataResponse",
+      "slug": "getrawdataresponse",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "data",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "time",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "GetRawDataOptions",
+      "slug": "getrawdataoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "backendDomain",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        }
+      ]
+    },
+    {
+      "name": "StartSecurityChecksOptions",
+      "slug": "startsecuritychecksoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "license",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "channelId",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "host",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "BlockCellphoneScreenOptions",
+      "slug": "blockcellphonescreenoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "enableScreen",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "enableApp",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "EnableOverlayProtectionResponse",
+      "slug": "enableoverlayprotectionresponse",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "enabled",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => Promise<void>"
+        }
+      ]
+    },
+    {
+      "name": "SecurityReasonsEvent",
+      "slug": "securityreasonsevent",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "reasons",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number[]"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": [],
+  "pluginConfigs": []
+}

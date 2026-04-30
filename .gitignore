@@ -1,0 +1,63 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Dependencies
+node_modules/
+package-lock.json
+.npm
+.yarn/
+
+# Swift / Xcode build artifacts
+.build/
+.swiftpm/
+DerivedData/
+
+# Compiled / build output
+build/
+out/
+*.o
+*.obj
+*.a
+*.dylib
+*.dll
+*.exe
+
+# Android NDK / native build
+src/android/scripts/android-native-src/libs/
+src/android/scripts/android-native-src/obj/
+src/android/cpp/libs/
+src/android/cpp/obj/
+*.apk
+*.aab
+.gradle/
+local.properties
+.cxx/
+
+# IDE / editors
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Logs and temp
+*.log
+npm-debug.log*
+.tmp
+temp/
+tmp/
+*.tmp
+
+# Keep prebuilt .so only where intended (e.g. copy to AppDummy plugin)
+# Uncomment if you don’t want to track any built libs in this repo:
+# src/android/jniLibs/
+# src/android/src/
